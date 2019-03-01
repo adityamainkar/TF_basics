@@ -22,7 +22,68 @@ f = d + e
 with tf.Session() as sess2:
     print(sess2.run(f))
 -----------------------------------------------------------------------------------------------------------
+(2) range/linspace
+
+linval = np.linspace(1.0, 10.0, 20)
+print(linval) # This print statement prints the value stored
+a = tf.constant(linval) # Convert to a tensorflow tensor
+print(a) # This does not print the value stored
+
+[ 1.          1.47368421  1.94736842  2.42105263  2.89473684  3.36842105
+  3.84210526  4.31578947  4.78947368  5.26315789  5.73684211  6.21052632
+  6.68421053  7.15789474  7.63157895  8.10526316  8.57894737  9.05263158
+  9.52631579 10.        ]
+Tensor("Const_2:0", shape=(20,), dtype=float64)
+
+a = tf.range(1, 10, 0.5)
+print(a)
+with tf.Session() as sess1:
+    print(sess1.run(a)
+    
+Tensor("range:0", shape=(18,), dtype=float32)
+[1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5 9.  9.5]
+-------------------------------------------------------------------------------------------------------------
+
+(3) Constant/Placeholders and Variables
+v  = tf.constant(2)
+
+ra = np.array([[1, 2],[7, 8]])
+a = tf.placeholder(tf.float32, shape=(2,2))
+b = tf.matmul(a, a)
+with tf.Session() as sess:
+    print(sess.run(b, feed_dict={a: ra}))
 
 
-(2) Constant/Placeholders and Variables
-a  = tf.constant(2)
+W = tf.Variable(tf.zeros((2,2)), name="weights")
+R = tf.Variable(tf.random_normal((2,2)), name="random_weights")
+with tf.Session() as sess:
+ ....: sess.run(tf.initialize_all_variables())
+ ....: print(sess.run(W))
+ ....: print(sess.run(R))
+
+Q:) Create a placeholder tensor, W1 of shape (2, 2). Create a numpy array I with 
+values [3, 0], [0, 1]. Define another tensor M that computes W1*W1. Run M and feed I. Print M.
+'''
+W1= tf.placeholder(tf.float32, shape=(2,2))
+I = np.array([[3.0, 0.0],[0.0, 1.0]])
+M = tf.matmul(W1,W1)
+with tf.Session() as sess:
+    sess.run(init_all_op)
+    print(sess.run(M, feed_dict={W1: I}))
+    
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
