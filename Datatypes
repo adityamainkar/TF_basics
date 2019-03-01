@@ -1,0 +1,28 @@
+(1) Define zeroes/ones
+a = np.zeros((3, 3)) # Create a 3x3 matrix filled with zero
+print(a)
+b = tf.zeros((3, 3)) # Create a 3x3 tensor filled with zero
+print(b)
+O/P: [[0. 0. 0.]
+      [0. 0. 0.]
+      [0. 0. 0.]]
+      Tensor("zeros:0", shape=(3, 3), dtype=float32)
+a = np.ones((3, 3)) # Create a 3x3 matrix filled with ones
+print(a)
+b = tf.ones((3, 3)) # Create a 3x3 tensor filled with ones
+print(b)
+
+Q) : Create a tensor, D with constant() with values [7, 8, 10]. Create another tensor, 
+E of size (3, ) using fill() that has value 10. Add the tensors, and call it F.
+Then run F and print the output. 
+'''
+d = tf.constant([7,8,9])
+e = tf.fill((3,),10)
+f = d + e 
+with tf.Session() as sess2:
+    print(sess2.run(f))
+-----------------------------------------------------------------------------------------------------------
+
+
+(2) Constant/Placeholders and Variables
+a  = tf.constant(2)
