@@ -73,7 +73,7 @@ with tf.Session() as sess:
     
 ----------------------------------------------------------------------------------------------
 
-(4) MathOperations:
+(4) MathOperations: truediv
 tf.add,tf.subtract
 t1 = tf.constant([[1, 2, 3], [4, 5, 6]])
 t2 = tf.constant([[7, 8, 9], [0, 1, 2]])
@@ -104,11 +104,11 @@ r = tf.cond(tf.less(x, y), f1, f2)
 
 
 ------------------------------------------------------------------------------
-(6)
+(6) slice/squeeze/shape/reshape
 Shapes:
 t1 = tf.zeros((3, 4, 5, 6)) 
 t2 = tf.size(t1) # Size gives the number of elements
-t2 - tf.shape(t1) # Shape [3,4,5,6]
+t3 - tf.shape(t1) # Shape [3,4,5,6]
 with tf.Session() as sess1:
     print(sess1.run(t2))    //360 
     
